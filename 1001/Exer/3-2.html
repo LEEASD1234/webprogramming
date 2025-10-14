@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>document.write()로 표만들기</title>
+</head>
+<body>
+<h3>document.write()로 표만들기</h3>
+<hr>
+<script>
+document.write("<table border='1' cellpadding='4' cellspacing='0'>");
+document.write("<tr><th>n</th>");
+for (let n = 0; n <= 9; n++) {
+    document.write("<td>" + n + "</td>");
+}
+document.write("</tr>");
+document.write("<tr><th>n²</th>");
+for (let n = 0; n <= 9; n++) {
+    document.write("<td>" + (n * n) + "</td>");
+}
+document.write("</tr>");
+document.write("</table>");
+</script>
+</body>
+</html>

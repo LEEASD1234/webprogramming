@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>큰자리수와 낮은자리수 같은지 비교</title>
+</head>
+<body>
+<h3>큰자리수와 낮은자리수 같은지 비교</h3>
+<hr>
+<script>
+let input = prompt("숫자 입력");
+let num = Number(input);
+
+if (isNaN(num) || num < 0) {
+    document.write("<p>유효하지 않은 입력입니다.</p>");
+} else {
+    let lastDigit = num % 10;
+    let tempNum = num;
+    let firstDigit = tempNum;
+    while (tempNum >= 10) {
+        tempNum = Math.floor(tempNum / 10);
+    }
+    firstDigit = tempNum;
+    let resultMessage = (firstDigit === lastDigit) ? "같음" : "다름";
+    
+    document.write("<p>" + input + ": " + resultMessage + "</p>");
+}
+</script>
+</body>
+</html>

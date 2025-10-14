@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>별 문자 출력</title>
+</head>
+<body>
+<h1>별 문자 출력하기</h1>
+<hr>
+<div id="result-container"></div>
+
+<script>
+function printStar(input) {
+    const container = document.getElementById('result-container');
+    container.innerHTML = '';
+	
+    const num = Number(input);
+    
+    if (isNaN(num) || num <= 0 || !Number.isInteger(num)) {
+        container.innerHTML = "<p>입력 오류입니다.</p>";
+        return;
+    }
+    const n = num;
+    let resultHTML = '';
+
+    //삼각형
+    resultHTML += '<pre>';
+    for (let i = 1; i <= n; i++) {
+        resultHTML += '*'.repeat(i) + '\n';
+    }
+    resultHTML += '</pre>';
+
+    //반전삼각형
+    resultHTML += '<pre>';
+    for (let i = 1; i <= n; i++) {
+        resultHTML += ' '.repeat(n - i) + '*'.repeat(i) + '\n';
+    }
+    resultHTML += '</pre>';
+
+    //마름모
+    resultHTML += '<pre>';	
+    for (let i = 1; i <= n; i++) {
+        resultHTML += ' '.repeat(n - i) + '*'.repeat(2 * i - 1) + '\n';
+    }
+
+    for (let i = n - 1; i >= 1; i--) {
+        resultHTML += ' '.repeat(n - i) + '*'.repeat(2 * i - 1) + '\n';
+    }
+    resultHTML += '</pre>';
+
+    container.innerHTML = resultHTML;
+}
+
+const userInput = prompt("정수를 입력하세요:");
+
+if (userInput !== null) {
+    printStar(userInput);
+} else {
+    document.getElementById('result-container').innerHTML = "<p>입력이 취소되었습니다.</p>";
+}
+</script>
+</body>
+</html>
