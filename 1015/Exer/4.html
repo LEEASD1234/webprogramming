@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>방문 요일에 따라 색상변경</title>
+<style>
+</style>
+</head>
+<body>
+<h2>일요일은 pink, 다른 요일은 gold 배경</h2>
+<hr>
+<p id="dayDisplay"></p>
+<script>
+	let now = new Date();
+	let date = now.getDate();
+	let dayIndex = now.getDay();
+	let days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	let currentDay = days[dayIndex];
+
+	document.getElementById("dayDisplay").innerText = "오늘 : " + date +"일, " + currentDay;
+
+	if (currentDay === "일요일") {
+		document.body.style.backgroundColor = "pink";
+	} else {
+		document.body.style.backgroundColor = "gold";
+	}
+</script>
+</body>
+</html>

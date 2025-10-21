@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>방문 시간이 오전 오후에 따라 색상변경</title>
+<style>
+</style>
+</head>
+<body>
+<h2>오전이면 lightskyblue, 오후임면 oraange 배경</h2>
+<hr>
+<p id="currentTime"></p>
+<script>
+	let now = new Date();
+	let hours = now.getHours();
+	let minutes = now.getMinutes();
+	let seconds = now.getSeconds();
+	let ampm = hours >= 12 ? "오후" : "오전";
+	let displayHour = hours % 12;
+	if(displayHour === 0) displayHour = 12;
+	let timeString = ampm + " " + displayHour + "시 " + minutes + "분 " + seconds + "초";
+	document.getElementById("currentTime").innerText = "현재 시간: " + timeString;
+	if (ampm === "오전") {
+		document.body.style.backgroundColor = "#87CEEB";
+	} else {
+		document.body.style.backgroundColor = "#FF8C00";
+	}
+</script>
+</body>
+</html>
