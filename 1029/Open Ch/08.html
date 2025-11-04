@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>갬블링 게임</title>
+<h3>갬블링 게임</h3>
+<p> 각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.
+<hr>
+<style>
+  .number {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    font-size: 48px;
+    margin: 10px;
+    user-select: none;
+  }
+</style>
+<script>
+  // 3개의 숫자 상태 저장
+  let numbers = [0, 0, 0];
+  let clicks = 0;
+
+  function changeNumber(index) {
+    // 0~2 사이의 난수 생성
+    numbers[index] = Math.floor(Math.random() * 3);
+    document.getElementById("num" + index).innerText = numbers[index];
+
+    clicks++;
+
+    // 세 번째 숫자를 눌렀을 때 결과 확인
+    if (index === 2) {
+      checkResult();
+    }
+  }
+
+  function checkResult() {
+    let resultDiv = document.getElementById("result");
+
+    if (numbers[0] === numbers[1] && numbers[1] === numbers[2]) {
+      resultDiv.innerHTML = "succcess (click here to do again)";
+      resultDiv.style.color = "blue";
+    } else {
+      resultDiv.innerHTML = "fail (click here to do again)";
+      resultDiv.style.color = "red";
+    }
+
+    // 결과를 클릭하면 게임 리셋
+    resultDiv.onclick = function() {
+      location.reload();
+    };
+  }
+</script>
+</head>
+<body>
+  <div id="num0" class="number" onclick="changeNumber(0)">0</div>
+  <div id="num1" class="number" onclick="changeNumber(1)">0</div>
+  <div id="num2" class="number" onclick="changeNumber(2)">0</div>
+  <div id="result"></div>
+</body>
+</html>

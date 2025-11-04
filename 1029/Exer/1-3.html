@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>라면을 끓이는 순서</title>
+  <style>
+    ul {
+      cursor: pointer; /* 마우스를 올리면 손가락 모양 표시 */
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h3>라면을 끓이는 순서</h3>
+  <hr>
+  <ul id="myList" onclick="changeColor()">
+    <li>A. 물을 끓인다.</li>
+    <li>B. 라면과 스프를 넣는다.</li>
+    <li>C. 파를 썰어 넣는다.</li>
+    <li>D. 5분 후 맛있게 먹는다.</li>
+  </ul>
+
+  <script>
+    function changeColor() {
+      let list = document.getElementById("myList");
+      list.style.backgroundColor = "yellowgreen";
+    }
+  </script>
+</body>
+</html>

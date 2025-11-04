@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>다음 빈 곳에 숨은 단어?</title>
+</head>
+<body>
+  <h3>다음 빈 곳에 숨은 단어?</h3>
+  <button onclick="showHide()">show/hide</button>
+  <hr>
+  <ul>
+    <li>I ( <span>love</span> ) you.</li>
+    <li>CSS is cascading ( <span>style</span> ) sheet.</li>
+    <li>응답하라 ( <span>1998</span> ).</li>
+  </ul>
+
+  <script>
+    function showHide() {
+      let spans = document.getElementsByTagName("span");
+      let visible = spans[0].style.visibility;
+      if (visible === "hidden" || visible === "") {
+        for (let i = 0; i < spans.length; i++) {
+          spans[i].style.visibility = "visible";
+        }
+      } else {
+        for (let i = 0; i < spans.length; i++) {
+          spans[i].style.visibility = "hidden";
+        }
+      }
+    }
+    window.onload = function() {
+      let spans = document.getElementsByTagName("span");
+      for (let i = 0; i < spans.length; i++) {
+        spans[i].style.visibility = "hidden";
+      }
+    };
+  </script>
+</body>
+</html>
